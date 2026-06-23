@@ -1,0 +1,137 @@
+[
+  {
+    "seed": 42,
+    "base_acc": 50.26,
+    "base_params_M": 14.9909,
+    "base_flops_M": 629.14,
+    "base_filters": 4224,
+    "pruning_results": [
+      {
+        "method": "dsfp",
+        "pruning_rate": 50,
+        "acc_pruned": 10.0,
+        "acc_kd": 86.31,
+        "acc_retention_pct": 171.73,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 2129
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 60,
+        "acc_pruned": 10.0,
+        "acc_kd": 85.07,
+        "acc_retention_pct": 169.26,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1663
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 70,
+        "acc_pruned": 10.0,
+        "acc_kd": 82.49,
+        "acc_retention_pct": 164.13,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1306
+      }
+    ]
+  },
+  {
+    "seed": 123,
+    "base_acc": 52.33,
+    "base_params_M": 14.9909,
+    "base_flops_M": 629.14,
+    "base_filters": 4224,
+    "pruning_results": [
+      {
+        "method": "dsfp",
+        "pruning_rate": 50,
+        "acc_pruned": 10.0,
+        "acc_kd": 85.61,
+        "acc_retention_pct": 163.6,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 2126
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 60,
+        "acc_pruned": 10.09,
+        "acc_kd": 84.14,
+        "acc_retention_pct": 160.79,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1769
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 70,
+        "acc_pruned": 10.0,
+        "acc_kd": 83.21,
+        "acc_retention_pct": 159.01,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1353
+      }
+    ]
+  },
+  {
+    "seed": 2026,
+    "base_acc": 51.56,
+    "base_params_M": 14.9909,
+    "base_flops_M": 629.14,
+    "base_filters": 4224,
+    "pruning_results": [
+      {
+        "method": "dsfp",
+        "pruning_rate": 50,
+        "acc_pruned": 10.0,
+        "acc_kd": 86.2,
+        "acc_retention_pct": 167.18,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 2108
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 60,
+        "acc_pruned": 10.0,
+        "acc_kd": 84.64,
+        "acc_retention_pct": 164.16,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1718
+      },
+      {
+        "method": "dsfp",
+        "pruning_rate": 70,
+        "acc_pruned": 10.0,
+        "acc_kd": 82.87,
+        "acc_retention_pct": 160.73,
+        "params_M": 14.9909,
+        "params_reduction_pct": 0.0,
+        "flops_M": 629.14,
+        "flops_reduction_pct": 0.0,
+        "filters": 1261
+      }
+    ]
+  }
+]

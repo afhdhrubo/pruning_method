@@ -1,0 +1,4 @@
+method,pruning_rate,acc_kd_mean,acc_kd_std,acc_retention_mean,acc_retention_std,params_M_mean,flops_M_mean,flops_reduction_mean,n_seeds
+dsfp,50,85.89,0.1633,166.52,1.64,14.9909,629.14,0.0,3
+dsfp,60,84.4767,0.2085,163.78,1.29,14.9909,629.14,0.0,3
+dsfp,70,82.75,0.3805,160.44,1.84,14.9909,629.14,0.0,3

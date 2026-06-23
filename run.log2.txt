@@ -1,0 +1,126 @@
+2026-06-10 14:50:22 | INFO     | root | Experiment: vgg16_cifar10_dsfp_r50_60_70
+2026-06-10 14:50:22 | INFO     | root | Args: {'config': None, 'arch': 'vgg16', 'num_classes': 10, 'pretrained_path': None, 'dataset': 'cifar10', 'data_dir': './data', 'batch_size': 128, 'num_workers': 2, 'calibration_size': 512, 'base_epochs': 40, 'base_lr': 0.001, 'weight_decay': 0.0001, 'momentum': 0.9, 'label_smoothing': 0.1, 'cosine_t0': 50, 'cosine_tmult': 2, 'accumulation_steps': 4, 'patience': 12, 'pruning_rates': [50, 60, 70], 'method': 'dsfp', 'bandit_lr': 0.01, 'bandit_buffer_size': 512, 'bandit_hidden': 32, 'bandit_epsilon_decay': 0.995, 'bandit_explore_delta': 5.0, 'kd_epochs': 700, 'kd_lr': 0.0001, 'kd_weight_decay': 0.0001, 'kd_alpha': 0.5, 'kd_temperature': 4.0, 'kd_patience': 10, 'kd_dynamic_alpha': True, 'seeds': [42, 123, 2026], 'single_seed': None, 'output_dir': './results', 'exp_name': 'vgg16_cifar10_dsfp_r50_60_70', 'save_checkpoints': False, 'log_level': 'INFO', 'eval_only': False, 'skip_base_finetune': False, 'ablation': False, 'baselines': False, 'device': None, 'amp': True}
+2026-06-10 14:50:22 | INFO     | root | Device: cuda
+2026-06-10 14:50:22 | INFO     | root | ============================================================
+2026-06-10 14:50:22 | INFO     | root |   Seed: 42
+2026-06-10 14:50:22 | INFO     | root | ============================================================
+2026-06-10 14:50:23 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=42)
+2026-06-10 14:50:24 | INFO     | models.registry | Built vgg16 | 10 classes | 14.991M params
+2026-06-10 14:50:24 | INFO     | root | Fine-tuning base model...
+2026-06-10 14:54:48 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9455 | val_acc=37.85% | best=37.85% | patience=0/12
+2026-06-10 14:59:02 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8372 | val_acc=45.24% | best=45.48% | patience=1/12
+2026-06-10 15:01:59 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7764 | val_acc=49.29% | best=49.29% | patience=0/12
+2026-06-10 15:03:44 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7591 | val_acc=50.08% | best=50.26% | patience=1/12
+2026-06-10 15:03:44 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 50.2600%
+2026-06-10 15:03:44 | INFO     | root | Base model accuracy: 50.26%
+2026-06-10 15:03:44 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-10 15:03:44 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-10 15:03:44 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 15:04:11 | INFO     | pruning.dsfp | Pruning complete: 2095/4224 filters zeroed (49.6% actual rate, target 50.0%)
+2026-06-10 15:04:12 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 15:14:02 | INFO     | training.trainer | KD early stopping at epoch 56
+2026-06-10 15:14:02 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 86.3100%
+2026-06-10 15:14:02 | INFO     | root | Accuracy after KD fine-tuning: 86.31%
+2026-06-10 15:14:02 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 171.73%
+2026-06-10 15:14:02 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-10 15:14:02 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 15:14:29 | INFO     | pruning.dsfp | Pruning complete: 2561/4224 filters zeroed (60.6% actual rate, target 60.0%)
+2026-06-10 15:14:29 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 15:24:37 | INFO     | training.trainer | KD early stopping at epoch 58
+2026-06-10 15:24:37 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 85.0700%
+2026-06-10 15:24:37 | INFO     | root | Accuracy after KD fine-tuning: 85.07%
+2026-06-10 15:24:37 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 169.26%
+2026-06-10 15:24:37 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-10 15:24:37 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 15:25:04 | INFO     | pruning.dsfp | Pruning complete: 2918/4224 filters zeroed (69.1% actual rate, target 70.0%)
+2026-06-10 15:25:04 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 15:34:38 | INFO     | training.trainer | KD early stopping at epoch 53
+2026-06-10 15:34:38 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 82.4900%
+2026-06-10 15:34:38 | INFO     | root | Accuracy after KD fine-tuning: 82.49%
+2026-06-10 15:34:38 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 164.13%
+2026-06-10 15:34:39 | INFO     | root | ============================================================
+2026-06-10 15:34:39 | INFO     | root |   Seed: 123
+2026-06-10 15:34:39 | INFO     | root | ============================================================
+2026-06-10 15:34:41 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=123)
+2026-06-10 15:34:41 | INFO     | models.registry | Built vgg16 | 10 classes | 14.991M params
+2026-06-10 15:34:41 | INFO     | root | Fine-tuning base model...
+2026-06-10 15:36:43 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9354 | val_acc=39.10% | best=39.10% | patience=0/12
+2026-06-10 15:38:33 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8338 | val_acc=46.82% | best=46.82% | patience=0/12
+2026-06-10 15:40:24 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7645 | val_acc=50.04% | best=50.37% | patience=1/12
+2026-06-10 15:42:15 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7396 | val_acc=52.33% | best=52.33% | patience=0/12
+2026-06-10 15:42:15 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 52.3300%
+2026-06-10 15:42:15 | INFO     | root | Base model accuracy: 52.33%
+2026-06-10 15:42:15 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-10 15:42:15 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-10 15:42:15 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 15:42:42 | INFO     | pruning.dsfp | Pruning complete: 2098/4224 filters zeroed (49.7% actual rate, target 50.0%)
+2026-06-10 15:42:43 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 15:54:05 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-10 15:54:05 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 85.6100%
+2026-06-10 15:54:05 | INFO     | root | Accuracy after KD fine-tuning: 85.61%
+2026-06-10 15:54:05 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 163.60%
+2026-06-10 15:54:05 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-10 15:54:05 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 15:54:32 | INFO     | pruning.dsfp | Pruning complete: 2455/4224 filters zeroed (58.1% actual rate, target 60.0%)
+2026-06-10 15:54:32 | INFO     | root | Accuracy after pruning (before KD): 10.09%
+2026-06-10 16:04:47 | INFO     | training.trainer | KD early stopping at epoch 56
+2026-06-10 16:04:47 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 84.1400%
+2026-06-10 16:04:47 | INFO     | root | Accuracy after KD fine-tuning: 84.14%
+2026-06-10 16:04:47 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 160.79%
+2026-06-10 16:04:47 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-10 16:04:47 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 16:05:13 | INFO     | pruning.dsfp | Pruning complete: 2871/4224 filters zeroed (68.0% actual rate, target 70.0%)
+2026-06-10 16:05:14 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 16:15:46 | INFO     | training.trainer | KD early stopping at epoch 60
+2026-06-10 16:15:46 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 83.2100%
+2026-06-10 16:15:46 | INFO     | root | Accuracy after KD fine-tuning: 83.21%
+2026-06-10 16:15:46 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 159.01%
+2026-06-10 16:15:47 | INFO     | root | ============================================================
+2026-06-10 16:15:47 | INFO     | root |   Seed: 2026
+2026-06-10 16:15:47 | INFO     | root | ============================================================
+2026-06-10 16:15:48 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=2026)
+2026-06-10 16:15:48 | INFO     | models.registry | Built vgg16 | 10 classes | 14.991M params
+2026-06-10 16:15:48 | INFO     | root | Fine-tuning base model...
+2026-06-10 16:17:44 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9571 | val_acc=37.96% | best=37.96% | patience=0/12
+2026-06-10 16:19:30 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8324 | val_acc=46.08% | best=46.08% | patience=0/12
+2026-06-10 16:21:16 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7556 | val_acc=50.07% | best=50.07% | patience=0/12
+2026-06-10 16:23:03 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7433 | val_acc=51.56% | best=51.56% | patience=0/12
+2026-06-10 16:23:03 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 51.5600%
+2026-06-10 16:23:03 | INFO     | root | Base model accuracy: 51.56%
+2026-06-10 16:23:03 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-10 16:23:03 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-10 16:23:03 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 16:23:30 | INFO     | pruning.dsfp | Pruning complete: 2116/4224 filters zeroed (50.1% actual rate, target 50.0%)
+2026-06-10 16:23:30 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 16:32:06 | INFO     | training.trainer | KD early stopping at epoch 48
+2026-06-10 16:32:06 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 86.2000%
+2026-06-10 16:32:06 | INFO     | root | Accuracy after KD fine-tuning: 86.20%
+2026-06-10 16:32:06 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 167.18%
+2026-06-10 16:32:06 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-10 16:32:06 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 16:32:32 | INFO     | pruning.dsfp | Pruning complete: 2506/4224 filters zeroed (59.3% actual rate, target 60.0%)
+2026-06-10 16:32:33 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 16:43:08 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-10 16:43:08 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 84.6400%
+2026-06-10 16:43:08 | INFO     | root | Accuracy after KD fine-tuning: 84.64%
+2026-06-10 16:43:08 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 164.16%
+2026-06-10 16:43:08 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-10 16:43:08 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-10 16:43:35 | INFO     | pruning.dsfp | Pruning complete: 2963/4224 filters zeroed (70.1% actual rate, target 70.0%)
+2026-06-10 16:43:35 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-10 16:54:14 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-10 16:54:14 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 82.8700%
+2026-06-10 16:54:14 | INFO     | root | Accuracy after KD fine-tuning: 82.87%
+2026-06-10 16:54:14 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 160.73%
+2026-06-10 16:54:15 | INFO     | utils.logging | Summary written to ./results\vgg16_cifar10_dsfp_r50_60_70\summary.csv
+2026-06-10 16:54:15 | INFO     | utils.logging | Full results JSON written to ./results\vgg16_cifar10_dsfp_r50_60_70\results.json
+2026-06-10 16:54:15 | INFO     | root | All seeds complete. Summary written to results directory.

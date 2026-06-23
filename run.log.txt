@@ -1,0 +1,225 @@
+2026-06-17 19:40:39 | INFO     | root | Experiment: vgg16_cifar10_dsfp_r50_60_70
+2026-06-17 19:40:39 | INFO     | root | Args: {'config': None, 'arch': 'vgg16', 'num_classes': 10, 'pretrained_path': None, 'dataset': 'cifar10', 'data_dir': './data', 'batch_size': 128, 'num_workers': 2, 'calibration_size': 512, 'base_epochs': 40, 'base_lr': 0.001, 'weight_decay': 0.0001, 'momentum': 0.9, 'label_smoothing': 0.1, 'cosine_t0': 50, 'cosine_tmult': 2, 'accumulation_steps': 4, 'patience': 12, 'pruning_rates': [50, 60, 70], 'method': 'dsfp', 'bandit_lr': 0.01, 'bandit_buffer_size': 512, 'bandit_hidden': 32, 'bandit_epsilon_decay': 0.995, 'bandit_explore_delta': 5.0, 'kd_epochs': 700, 'kd_lr': 0.0001, 'kd_weight_decay': 0.0001, 'kd_alpha': 0.5, 'kd_temperature': 4.0, 'kd_patience': 10, 'kd_dynamic_alpha': True, 'seeds': [42, 123, 2026], 'single_seed': None, 'output_dir': './results', 'exp_name': 'vgg16_cifar10_dsfp_r50_60_70', 'save_checkpoints': True, 'log_level': 'INFO', 'eval_only': False, 'skip_base_finetune': False, 'ablation': False, 'baselines': False, 'device': None, 'amp': True, 'resume': True}
+2026-06-17 19:40:39 | INFO     | root | Device: cuda | GPUs: 1
+2026-06-17 19:40:39 | INFO     | root |   GPU 0: NVIDIA GeForce RTX 4070 SUPER
+2026-06-17 19:40:39 | INFO     | root | ============================================================
+2026-06-17 19:40:39 | INFO     | root |   Seed: 42
+2026-06-17 19:40:39 | INFO     | root | ============================================================
+2026-06-17 21:44:29 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=42)
+2026-06-17 21:44:29 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-17 21:44:29 | INFO     | root | Fine-tuning base model...
+2026-06-17 21:46:38 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9447 | val_acc=37.71% | best=37.71% | patience=0/12
+2026-06-17 21:48:40 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8339 | val_acc=45.67% | best=45.68% | patience=1/12
+2026-06-17 21:50:28 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7723 | val_acc=49.70% | best=49.70% | patience=0/12
+2026-06-17 21:52:13 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7548 | val_acc=50.75% | best=50.88% | patience=1/12
+2026-06-17 21:52:13 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 50.8800%
+2026-06-17 21:52:13 | INFO     | utils.checkpoint | [Checkpoint] saved: base_seed42.pth
+2026-06-17 21:52:13 | INFO     | utils.checkpoint | [Checkpoint] marked done: base_finetune:s42
+2026-06-17 21:52:13 | INFO     | root | Base model accuracy: 50.88%
+2026-06-17 21:52:13 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-17 21:52:13 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-17 21:52:13 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-17 21:52:40 | INFO     | pruning.dsfp | Pruning complete: 2095/4224 filters zeroed (49.6% actual rate, target 50.0%)
+2026-06-17 21:52:40 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 12:58:19 | INFO     | root | Experiment: vgg16_cifar10_dsfp_r50_60_70
+2026-06-18 12:58:19 | INFO     | root | Args: {'config': None, 'arch': 'vgg16', 'num_classes': 10, 'pretrained_path': None, 'dataset': 'cifar10', 'data_dir': './data', 'batch_size': 128, 'num_workers': 2, 'calibration_size': 512, 'base_epochs': 40, 'base_lr': 0.001, 'weight_decay': 0.0001, 'momentum': 0.9, 'label_smoothing': 0.1, 'cosine_t0': 50, 'cosine_tmult': 2, 'accumulation_steps': 4, 'patience': 12, 'pruning_rates': [50, 60, 70], 'method': 'dsfp', 'bandit_lr': 0.01, 'bandit_buffer_size': 512, 'bandit_hidden': 32, 'bandit_epsilon_decay': 0.995, 'bandit_explore_delta': 5.0, 'kd_epochs': 700, 'kd_lr': 0.0001, 'kd_weight_decay': 0.0001, 'kd_alpha': 0.5, 'kd_temperature': 4.0, 'kd_patience': 10, 'kd_dynamic_alpha': True, 'seeds': [42, 123, 2026], 'single_seed': None, 'output_dir': './results', 'exp_name': 'vgg16_cifar10_dsfp_r50_60_70', 'save_checkpoints': True, 'log_level': 'INFO', 'eval_only': False, 'skip_base_finetune': False, 'ablation': False, 'baselines': False, 'device': None, 'amp': True, 'resume': True}
+2026-06-18 12:58:19 | INFO     | root | Device: cuda | GPUs: 1
+2026-06-18 12:58:19 | INFO     | root |   GPU 0: NVIDIA GeForce RTX 4070 SUPER
+2026-06-18 12:58:19 | INFO     | utils.checkpoint | Loaded checkpoint manifest (1 entries)
+2026-06-18 12:58:19 | INFO     | root | ============================================================
+2026-06-18 12:58:19 | INFO     | root |   Seed: 42
+2026-06-18 12:58:19 | INFO     | root | ============================================================
+2026-06-18 12:58:21 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=42)
+2026-06-18 12:58:21 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-18 12:58:21 | INFO     | root | [Resume] Loading base model checkpoint for seed 42
+2026-06-18 12:58:21 | INFO     | utils.checkpoint | [Checkpoint] loaded: base_seed42.pth
+2026-06-18 12:58:22 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-18 12:58:22 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-18 12:58:22 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 12:58:48 | INFO     | pruning.dsfp | Pruning complete: 2160/4224 filters zeroed (51.1% actual rate, target 50.0%)
+2026-06-18 12:58:53 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 13:13:54 | INFO     | root | Experiment: vgg16_cifar10_dsfp_r50_60_70
+2026-06-18 13:13:54 | INFO     | root | Args: {'config': None, 'arch': 'vgg16', 'num_classes': 10, 'pretrained_path': None, 'dataset': 'cifar10', 'data_dir': './data', 'batch_size': 128, 'num_workers': 2, 'calibration_size': 512, 'base_epochs': 40, 'base_lr': 0.001, 'weight_decay': 0.0001, 'momentum': 0.9, 'label_smoothing': 0.1, 'cosine_t0': 50, 'cosine_tmult': 2, 'accumulation_steps': 4, 'patience': 12, 'pruning_rates': [50, 60, 70], 'method': 'dsfp', 'bandit_lr': 0.01, 'bandit_buffer_size': 512, 'bandit_hidden': 32, 'bandit_epsilon_decay': 0.995, 'bandit_explore_delta': 5.0, 'kd_epochs': 700, 'kd_lr': 0.0001, 'kd_weight_decay': 0.0001, 'kd_alpha': 0.5, 'kd_temperature': 4.0, 'kd_patience': 10, 'kd_dynamic_alpha': True, 'seeds': [42, 123, 2026], 'single_seed': None, 'output_dir': './results', 'exp_name': 'vgg16_cifar10_dsfp_r50_60_70', 'save_checkpoints': True, 'log_level': 'INFO', 'eval_only': False, 'skip_base_finetune': False, 'ablation': False, 'baselines': False, 'device': None, 'amp': True, 'resume': True}
+2026-06-18 13:13:54 | INFO     | root | Device: cuda | GPUs: 1
+2026-06-18 13:13:54 | INFO     | root |   GPU 0: NVIDIA GeForce RTX 4070 SUPER
+2026-06-18 13:13:54 | INFO     | utils.checkpoint | Loaded checkpoint manifest (1 entries)
+2026-06-18 13:13:54 | INFO     | root | ============================================================
+2026-06-18 13:13:54 | INFO     | root |   Seed: 42
+2026-06-18 13:13:54 | INFO     | root | ============================================================
+2026-06-18 13:13:56 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=42)
+2026-06-18 13:13:56 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-18 13:13:56 | INFO     | root | [Resume] Loading base model checkpoint for seed 42
+2026-06-18 13:13:56 | INFO     | utils.checkpoint | [Checkpoint] loaded: base_seed42.pth
+2026-06-18 13:13:56 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-18 13:13:56 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-18 13:13:56 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 13:14:23 | INFO     | pruning.dsfp | Pruning complete: 2160/4224 filters zeroed (51.1% actual rate, target 50.0%)
+2026-06-18 13:14:28 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 13:14:28 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_50_seed42_dsfp_r50pct.pth
+2026-06-18 13:14:28 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_50:s42
+2026-06-18 13:16:54 | INFO     | root | Experiment: vgg16_cifar10_dsfp_r50_60_70
+2026-06-18 13:16:54 | INFO     | root | Args: {'config': None, 'arch': 'vgg16', 'num_classes': 10, 'pretrained_path': None, 'dataset': 'cifar10', 'data_dir': './data', 'batch_size': 128, 'num_workers': 2, 'calibration_size': 512, 'base_epochs': 40, 'base_lr': 0.001, 'weight_decay': 0.0001, 'momentum': 0.9, 'label_smoothing': 0.1, 'cosine_t0': 50, 'cosine_tmult': 2, 'accumulation_steps': 4, 'patience': 12, 'pruning_rates': [50, 60, 70], 'method': 'dsfp', 'bandit_lr': 0.01, 'bandit_buffer_size': 512, 'bandit_hidden': 32, 'bandit_epsilon_decay': 0.995, 'bandit_explore_delta': 5.0, 'kd_epochs': 700, 'kd_lr': 0.0001, 'kd_weight_decay': 0.0001, 'kd_alpha': 0.5, 'kd_temperature': 4.0, 'kd_patience': 10, 'kd_dynamic_alpha': True, 'seeds': [42, 123, 2026], 'single_seed': None, 'output_dir': './results', 'exp_name': 'vgg16_cifar10_dsfp_r50_60_70', 'save_checkpoints': True, 'log_level': 'INFO', 'eval_only': False, 'skip_base_finetune': False, 'ablation': False, 'baselines': False, 'device': None, 'amp': True, 'resume': True}
+2026-06-18 13:16:54 | INFO     | root | Device: cuda | GPUs: 1
+2026-06-18 13:16:54 | INFO     | root |   GPU 0: NVIDIA GeForce RTX 4070 SUPER
+2026-06-18 13:16:54 | INFO     | utils.checkpoint | Loaded checkpoint manifest (2 entries)
+2026-06-18 13:16:54 | INFO     | root | ============================================================
+2026-06-18 13:16:54 | INFO     | root |   Seed: 42
+2026-06-18 13:16:54 | INFO     | root | ============================================================
+2026-06-18 13:16:56 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=42)
+2026-06-18 13:16:56 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-18 13:16:56 | INFO     | root | [Resume] Loading base model checkpoint for seed 42
+2026-06-18 13:16:56 | INFO     | utils.checkpoint | [Checkpoint] loaded: base_seed42.pth
+2026-06-18 13:16:57 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-18 13:16:57 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-18 13:16:57 | INFO     | root | [Resume] Loading post-prune model for KD fine-tune
+2026-06-18 13:16:57 | INFO     | utils.checkpoint | [Checkpoint] loaded: post_prune_dsfp_50_seed42_dsfp_r50pct.pth
+2026-06-18 13:26:37 | INFO     | training.trainer | KD early stopping at epoch 53
+2026-06-18 13:26:37 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 85.8900%
+2026-06-18 13:26:37 | INFO     | root | Accuracy after KD fine-tuning: 85.89%
+2026-06-18 13:26:37 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 168.81%
+2026-06-18 13:26:37 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_50_seed42_dsfp_r50pct.pth
+2026-06-18 13:26:37 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_50:s42
+2026-06-18 13:26:37 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-18 13:26:37 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 13:27:03 | INFO     | pruning.dsfp | Pruning complete: 2582/4224 filters zeroed (61.1% actual rate, target 60.0%)
+2026-06-18 13:27:04 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 13:27:04 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_60_seed42_dsfp_r60pct.pth
+2026-06-18 13:27:04 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_60:s42
+2026-06-18 13:36:36 | INFO     | training.trainer | KD early stopping at epoch 53
+2026-06-18 13:36:36 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 84.2300%
+2026-06-18 13:36:36 | INFO     | root | Accuracy after KD fine-tuning: 84.23%
+2026-06-18 13:36:36 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 165.55%
+2026-06-18 13:36:37 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_60_seed42_dsfp_r60pct.pth
+2026-06-18 13:36:37 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_60:s42
+2026-06-18 13:36:37 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-18 13:36:37 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 13:37:03 | INFO     | pruning.dsfp | Pruning complete: 2951/4224 filters zeroed (69.9% actual rate, target 70.0%)
+2026-06-18 13:37:03 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 13:37:03 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_70_seed42_dsfp_r70pct.pth
+2026-06-18 13:37:03 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_70:s42
+2026-06-18 13:47:09 | INFO     | training.trainer | KD early stopping at epoch 56
+2026-06-18 13:47:09 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 82.6100%
+2026-06-18 13:47:09 | INFO     | root | Accuracy after KD fine-tuning: 82.61%
+2026-06-18 13:47:09 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 162.36%
+2026-06-18 13:47:09 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_70_seed42_dsfp_r70pct.pth
+2026-06-18 13:47:09 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_70:s42
+2026-06-18 13:47:09 | INFO     | utils.checkpoint | [Checkpoint] marked done: seed_complete:s42
+2026-06-18 13:47:10 | INFO     | root | ============================================================
+2026-06-18 13:47:10 | INFO     | root |   Seed: 123
+2026-06-18 13:47:10 | INFO     | root | ============================================================
+2026-06-18 13:47:12 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=123)
+2026-06-18 13:47:12 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-18 13:47:12 | INFO     | root | Fine-tuning base model...
+2026-06-18 13:49:08 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9353 | val_acc=39.13% | best=39.13% | patience=0/12
+2026-06-18 13:50:54 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8345 | val_acc=46.79% | best=46.79% | patience=0/12
+2026-06-18 13:52:41 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7648 | val_acc=50.40% | best=50.40% | patience=0/12
+2026-06-18 13:54:27 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7404 | val_acc=51.72% | best=51.72% | patience=0/12
+2026-06-18 13:54:27 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 51.7200%
+2026-06-18 13:54:27 | INFO     | utils.checkpoint | [Checkpoint] saved: base_seed123.pth
+2026-06-18 13:54:27 | INFO     | utils.checkpoint | [Checkpoint] marked done: base_finetune:s123
+2026-06-18 13:54:27 | INFO     | root | Base model accuracy: 51.72%
+2026-06-18 13:54:27 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-18 13:54:27 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-18 13:54:27 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 13:54:53 | INFO     | pruning.dsfp | Pruning complete: 2098/4224 filters zeroed (49.7% actual rate, target 50.0%)
+2026-06-18 13:54:54 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 13:54:54 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_50_seed123_dsfp_r50pct.pth
+2026-06-18 13:54:54 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_50:s123
+2026-06-18 14:05:48 | INFO     | training.trainer | KD early stopping at epoch 60
+2026-06-18 14:05:48 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 85.6900%
+2026-06-18 14:05:48 | INFO     | root | Accuracy after KD fine-tuning: 85.69%
+2026-06-18 14:05:48 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 165.68%
+2026-06-18 14:05:48 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_50_seed123_dsfp_r50pct.pth
+2026-06-18 14:05:48 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_50:s123
+2026-06-18 14:05:48 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-18 14:05:48 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 14:06:14 | INFO     | pruning.dsfp | Pruning complete: 2480/4224 filters zeroed (58.7% actual rate, target 60.0%)
+2026-06-18 14:06:14 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 14:06:15 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_60_seed123_dsfp_r60pct.pth
+2026-06-18 14:06:15 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_60:s123
+2026-06-18 14:16:50 | INFO     | training.trainer | KD early stopping at epoch 58
+2026-06-18 14:16:50 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 84.4600%
+2026-06-18 14:16:50 | INFO     | root | Accuracy after KD fine-tuning: 84.46%
+2026-06-18 14:16:50 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 163.30%
+2026-06-18 14:16:51 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_60_seed123_dsfp_r60pct.pth
+2026-06-18 14:16:51 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_60:s123
+2026-06-18 14:16:51 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-18 14:16:51 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 14:17:17 | INFO     | pruning.dsfp | Pruning complete: 2871/4224 filters zeroed (68.0% actual rate, target 70.0%)
+2026-06-18 14:17:17 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 14:17:18 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_70_seed123_dsfp_r70pct.pth
+2026-06-18 14:17:18 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_70:s123
+2026-06-18 14:27:59 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-18 14:27:59 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 83.2700%
+2026-06-18 14:27:59 | INFO     | root | Accuracy after KD fine-tuning: 83.27%
+2026-06-18 14:27:59 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 161.00%
+2026-06-18 14:27:59 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_70_seed123_dsfp_r70pct.pth
+2026-06-18 14:27:59 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_70:s123
+2026-06-18 14:27:59 | INFO     | utils.checkpoint | [Checkpoint] marked done: seed_complete:s123
+2026-06-18 14:28:00 | INFO     | root | ============================================================
+2026-06-18 14:28:00 | INFO     | root |   Seed: 2026
+2026-06-18 14:28:00 | INFO     | root | ============================================================
+2026-06-18 14:28:02 | INFO     | utils.data | Dataset: cifar10 | Train: 50000 | Test: 10000 | Calib: 512 (seed=2026)
+2026-06-18 14:28:02 | INFO     | models.registry | Built vgg16 (cifar10) | 10 classes | 14.991M params
+2026-06-18 14:28:02 | INFO     | root | Fine-tuning base model...
+2026-06-18 14:30:00 | INFO     | training.trainer | [BaseTrainer] Epoch   10/40 | loss=1.9568 | val_acc=38.06% | best=38.06% | patience=0/12
+2026-06-18 14:31:45 | INFO     | training.trainer | [BaseTrainer] Epoch   20/40 | loss=1.8292 | val_acc=46.61% | best=46.61% | patience=0/12
+2026-06-18 14:33:30 | INFO     | training.trainer | [BaseTrainer] Epoch   30/40 | loss=1.7551 | val_acc=50.67% | best=50.67% | patience=0/12
+2026-06-18 14:35:15 | INFO     | training.trainer | [BaseTrainer] Epoch   40/40 | loss=1.7430 | val_acc=52.15% | best=52.15% | patience=0/12
+2026-06-18 14:35:16 | INFO     | training.trainer | [BaseTrainer] Done — best val accuracy: 52.1500%
+2026-06-18 14:35:16 | INFO     | utils.checkpoint | [Checkpoint] saved: base_seed2026.pth
+2026-06-18 14:35:16 | INFO     | utils.checkpoint | [Checkpoint] marked done: base_finetune:s2026
+2026-06-18 14:35:16 | INFO     | root | Base model accuracy: 52.15%
+2026-06-18 14:35:16 | INFO     | root | Base — Params: 14.9909M | FLOPs: 629.14 MFLOPs | Filters: 4224
+2026-06-18 14:35:16 | INFO     | root | 
+--- Method: DSFP | Rate: 50% ---
+2026-06-18 14:35:16 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 14:35:42 | INFO     | pruning.dsfp | Pruning complete: 2116/4224 filters zeroed (50.1% actual rate, target 50.0%)
+2026-06-18 14:35:42 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 14:35:42 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_50_seed2026_dsfp_r50pct.pth
+2026-06-18 14:35:42 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_50:s2026
+2026-06-18 14:46:33 | INFO     | training.trainer | KD early stopping at epoch 60
+2026-06-18 14:46:33 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 86.0900%
+2026-06-18 14:46:33 | INFO     | root | Accuracy after KD fine-tuning: 86.09%
+2026-06-18 14:46:33 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 165.08%
+2026-06-18 14:46:33 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_50_seed2026_dsfp_r50pct.pth
+2026-06-18 14:46:33 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_50:s2026
+2026-06-18 14:46:33 | INFO     | root | 
+--- Method: DSFP | Rate: 60% ---
+2026-06-18 14:46:33 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 14:46:59 | INFO     | pruning.dsfp | Pruning complete: 2506/4224 filters zeroed (59.3% actual rate, target 60.0%)
+2026-06-18 14:47:00 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 14:47:00 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_60_seed2026_dsfp_r60pct.pth
+2026-06-18 14:47:00 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_60:s2026
+2026-06-18 14:57:36 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-18 14:57:36 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 84.7400%
+2026-06-18 14:57:36 | INFO     | root | Accuracy after KD fine-tuning: 84.74%
+2026-06-18 14:57:36 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 162.49%
+2026-06-18 14:57:36 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_60_seed2026_dsfp_r60pct.pth
+2026-06-18 14:57:36 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_60:s2026
+2026-06-18 14:57:36 | INFO     | root | 
+--- Method: DSFP | Rate: 70% ---
+2026-06-18 14:57:36 | INFO     | pruning.dsfp | Phase A: computing DSFP importance scores...
+2026-06-18 14:58:02 | INFO     | pruning.dsfp | Pruning complete: 2963/4224 filters zeroed (70.1% actual rate, target 70.0%)
+2026-06-18 14:58:03 | INFO     | root | Accuracy after pruning (before KD): 10.00%
+2026-06-18 14:58:03 | INFO     | utils.checkpoint | [Checkpoint] saved: post_prune_dsfp_70_seed2026_dsfp_r70pct.pth
+2026-06-18 14:58:03 | INFO     | utils.checkpoint | [Checkpoint] marked done: pruned_dsfp_70:s2026
+2026-06-18 15:08:43 | INFO     | training.trainer | KD early stopping at epoch 59
+2026-06-18 15:08:43 | INFO     | training.trainer | [KDTrainer] Done — best val accuracy: 82.3700%
+2026-06-18 15:08:43 | INFO     | root | Accuracy after KD fine-tuning: 82.37%
+2026-06-18 15:08:43 | INFO     | root |   Params: 14.9909M (0.0% reduction) | FLOPs: 629.14 MFLOPs (0.0% reduction) | Acc retention: 157.95%
+2026-06-18 15:08:43 | INFO     | utils.checkpoint | [Checkpoint] saved: final_dsfp_70_seed2026_dsfp_r70pct.pth
+2026-06-18 15:08:43 | INFO     | utils.checkpoint | [Checkpoint] marked done: prune_kd_dsfp_70:s2026
+2026-06-18 15:08:43 | INFO     | utils.checkpoint | [Checkpoint] marked done: seed_complete:s2026
+2026-06-18 15:08:44 | INFO     | utils.logging | Summary written to ./results\vgg16_cifar10_dsfp_r50_60_70\summary.csv
+2026-06-18 15:08:44 | INFO     | utils.logging | Full results JSON written to ./results\vgg16_cifar10_dsfp_r50_60_70\results.json
+2026-06-18 15:08:44 | INFO     | root | All seeds complete. Summary written to results directory.
